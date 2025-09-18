@@ -1,50 +1,45 @@
-// Complete this code
+//complete this code
 class Person {
-	constructor(name, age) {
-		this._name = name;  // Use _name
-		this._age = age;    // Use _age
+	constructor(name, age){
+		this.name = name;
+		this.age = age;
 	}
 
-	// Getter for name
 	get newName() {
-		return this._name;
+		return this.name;
 	}
 
-	// Setter for age
 	set newAge(age) {
-		this._age = age;
+		return this.age;
 	}
 }
 
 class Student extends Person {
-	study() {
-		console.log(this._name + " is studying");
+	study(){
+	console.log( this.name + " is studying");
 	}
 }
 
 class Teacher extends Person {
-	teach() {
-		console.log(this._name + " is teaching");
+	teach(){
+	console.log( this.name + " is teaching");
 	}
 }
 
-// Testing Person
 const person = new Person("John", 25);
-console.log(person._name); // John
+console.log(person.name); 
 
-person.newAge = 30; // Using setter
-console.log(person._age); // 30
+person.age = 30;
+console.log(person.age);
 
-// Testing Student
 const student = new Student("Alice", 22);
-student.study(); // Alice is studying
+student.study(); 
 
-// Testing Teacher
+
 const teacher = new Teacher("Bob", 40);
-teacher.teach(); // Bob is teaching
+teacher.teach();
 
 // Do not change the code below this line
 window.Person = Person;
 window.Student = Student;
 window.Teacher = Teacher;
-
