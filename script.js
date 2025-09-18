@@ -1,27 +1,32 @@
-//complete this code
+// Complete this code
 class Person {
-	constructor(name, age){
-		this._name = name;  // Use _name to match test
-		this._age = age;    // Use _age to match test
+	constructor(name, age) {
+		this._name = name;  // Internal storage
+		this._age = age;    // Internal storage
 	}
 
-	// Getter for name
-	get newName() {
+	// Public getter for name (Cypress expects person.name to work)
+	get name() {
 		return this._name;
 	}
 
-	// Setter for age
-	set newAge(age) {
-		this._age = age;
-	}
-
-	// Getter for age (optional, but useful)
+	// Public getter for age
 	get age() {
 		return this._age;
 	}
 
-	// Setter for age (alternate access using direct property)
+	// Public setter for age
 	set age(value) {
+		this._age = value;
+	}
+
+	// Optional custom getter for newName (not used by test but kept for extra feature)
+	get newName() {
+		return this._name;
+	}
+
+	// Optional custom setter for newAge
+	set newAge(value) {
 		this._age = value;
 	}
 }
@@ -40,10 +45,10 @@ class Teacher extends Person {
 
 // Creating a Person instance
 const person = new Person("John", 25);
-console.log(person._name);  // Output: John
+console.log(person.name);  // Output: John
 
-person.age = 30;  // Using the setter to change the age
-console.log(person._age);   // Output: 30
+person.age = 30;  // Using setter to change the age
+console.log(person.age);   // Output: 30
 
 // Creating a Student instance
 const student = new Student("Alice", 22);
@@ -57,4 +62,5 @@ teacher.teach();  // Output: Bob is teaching
 window.Person = Person;
 window.Student = Student;
 window.Teacher = Teacher;
+
 
